@@ -2,7 +2,6 @@ import * as express from "express";
 import { getCommentRepository } from "../repositories/comment_repository";
 import * as joi from "joi";
 import { authMiddleware } from "../middleware/auth_middeware";
-import { User } from "../entities/user";
 
 
 export function getCommentController() {
@@ -23,7 +22,7 @@ export function getCommentController() {
         content: joi.string()
     };
 
-    // HTTP POST http://localhost:8080/comments/
+    // HTTP POST http://localhost:8080/api/v1/comments/
     router.post("/", authMiddleware, (req, res) => {
         (async () => {
             const newComment = req.body;
@@ -37,7 +36,7 @@ export function getCommentController() {
         })();
     });
 
-    // HTTP PUT http://localhost:8080/comments/
+    // HTTP PUT http://localhost:8080/api/v1/comments/
     router.put("/:id", authMiddleware, (req, res) => {
         (async () => {
             const id = req.params.id;
@@ -65,7 +64,7 @@ export function getCommentController() {
     });
     
 
-    // HTTP DELETE http://localhost:8080/comments/1
+    // HTTP DELETE http://localhost:8080/api/v1/comments/1
     router.delete("/:id", authMiddleware, (req, res) => {
         (async () => {
             const id = req.params.id;

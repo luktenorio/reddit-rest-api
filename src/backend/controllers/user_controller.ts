@@ -32,7 +32,7 @@ export function getUserController() {
         password: joi.string()
     };
 
-    // HTTP POST http://localhost:8080/users/
+    // HTTP POST http://localhost:8080/api/v1/users/
     router.post("/", (req, res) => {
         (async () => {
             const newUser = req.body;
@@ -46,7 +46,7 @@ export function getUserController() {
         })();
     });
 
-    // HTTP GET http://localhost:8080/users/1
+    // HTTP GET http://localhost:8080/api/v1/users/1
     router.get("/:id", handlers.getUserByIDHandler);
 
     return router;

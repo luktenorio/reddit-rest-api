@@ -6,7 +6,7 @@ import { Repository } from "typeorm";
 import { authMiddleware } from "../middleware/auth_middeware";
 import { getVoteRepository } from "../repositories/vote_repository";
 import { Vote } from "../entities/Vote";
-import { User } from "../entities/user";
+import { User } from "../entities/User";
 
 export function getHandlers(linkRepo: Repository<Link>, voteRepo: Repository<Vote>) {
     const getLinkByIDHandler = (req: express.Request, res: express.Response) => {
@@ -73,7 +73,7 @@ export function getLinkController() {
         }
     };
 
-    // HTTP POST http://localhost:8080/links/
+    // HTTP POST http://localhost:8080/api/v1/links/
     router.post("/", authMiddleware, (req, res) => {
         (async () => {
             const newLink = req.body;
@@ -87,7 +87,7 @@ export function getLinkController() {
         })();
     });
 
-    // HTTP DELETE http://localhost:8080/links/1
+    // HTTP DELETE http://localhost:8080/api/v1/links/1
     router.delete("/:id", authMiddleware, (req, res) => {
         (async () => {
             const id = req.params.id;
@@ -103,20 +103,20 @@ export function getLinkController() {
         })();
     });
 
-    // HTTP post http://localhost:8080/links/1/upvote
+    // HTTP post http://localhost:8080/api/v1/links/1/upvote
     router.post("/:id/upvote", authMiddleware, (req, res) => {
         handlers.postVote(req, res, true);
     });
 
-    // HTTP post http://localhost:8080/links/1/downvote
+    // HTTP post http://localhost:8080/api/v1/links/1/downvote
     router.post("/:id/downvote", authMiddleware, (req, res) => {
         handlers.postVote(req, res, false);
     });
 
-    // HTTP GET http://localhost:8080/links/1
+    // HTTP GET http://localhost:8080/api/v1/links/1
     router.get("/:id", handlers.getLinkByIDHandler);
 
-    // HTTP GET http://localhost:8080/links/
+    // HTTP GET http://localhost:8080/api/v1/links/
     router.get("/", handlers.getAllLinksHandler);
 
     return router;

@@ -13,7 +13,7 @@ export function getAuthController() {
         password: joi.string()
     };
 
-    // HTTP POST http://localhost:8080/auth/login/
+    // HTTP POST http://localhost:8080/api/v1/auth/login/
     router.post("/login", (req, res) => {
         (async () => {
             const userDetails = req.body;
