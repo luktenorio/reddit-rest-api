@@ -27,10 +27,10 @@ export async function createApp() {
     const commentsController = getCommentController();
     const linksController = getLinkController();
     const usersController = getUserController();
-    app.use("/auth", authController);
-    app.use("/comments", commentsController);
-    app.use("/links", linksController);
-    app.use("/users", usersController);
+    app.use("/api/v1/auth", authController);
+    app.use("/api/v1/comments", commentsController);
+    app.use("/api/v1/links", linksController);
+    app.use("/api/v1/users", usersController);
 
     interface Error {
         status?: number;

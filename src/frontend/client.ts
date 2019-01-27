@@ -5,7 +5,7 @@
         password: "password"
     };
     const response = await fetch(
-        "http://localhost:8080/users/",
+        "http://localhost:8080/api/v1/users/",
         {
             method: "POST",
             headers: {
@@ -21,7 +21,7 @@
 //GET USER
 (async () => {
     const response = await fetch(
-        "http://localhost:8080/users/1",
+        "http://localhost:8080/api/v1/users/1",
         {
             method: "GET"
         }
@@ -37,7 +37,7 @@
         password: "password"
     };
     const response = await fetch(
-        "http://localhost:8080/auth/login/",
+        "http://localhost:8080/api/v1/auth/login/",
         {
             method: "POST",
             headers: {
@@ -58,7 +58,7 @@
         user: { id: 1 }
     };
     const response = await fetch(
-        "http://localhost:8080/links/",
+        "http://localhost:8080/api/v1/links/",
         {
             method: "POST",
             headers: {
@@ -75,7 +75,7 @@
 //DELETE LINK
 (async () => {
     const response = await fetch(
-        "http://localhost:8080/links/7",
+        "http://localhost:8080/api/v1/links/7",
         {
             method: "DELETE",
             headers: {
@@ -91,7 +91,7 @@
 //POST UPVOTE LIKS
 (async () => {
     const response = await fetch(
-        "http://localhost:8080/links/2/upvote",
+        "http://localhost:8080/api/v1/links/2/upvote",
         {
             method: "POST",
             headers: {
@@ -112,7 +112,7 @@
         link: { id: 2 }
     };
     const response = await fetch(
-        "http://localhost:8080/comments/",
+        "http://localhost:8080/api/v1/comments/",
         {
             method: "POST",
             headers: {
@@ -130,7 +130,7 @@
 (async () => {
     const data = { content: "Thanks" };
     const response = await fetch(
-        "http://localhost:8080/comments/1",
+        "http://localhost:8080/api/v1/comments/1",
         {
             method: "PUT",
             headers: {
@@ -147,7 +147,7 @@
 //DELETE COMMENT
 (async () => {
     const response = await fetch(
-        "http://localhost:8080/comments/1",
+        "http://localhost:8080/api/v1/comments/1",
         {
             method: "DELETE",
             headers: {

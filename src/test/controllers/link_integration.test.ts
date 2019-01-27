@@ -1,5 +1,4 @@
 import request from "supertest";
-import { expect } from "chai";
 import { it, describe } from "mocha"; 
 import { createApp } from "../../../app";
 
@@ -15,12 +14,12 @@ describe("Link integration", () => {
             };
 
             request(app)
-            .post("/links")
+            .post("/api/v1/links")
             .send(data)
             .set('Content-Type', 'application/json')
             .set("x-auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTQ4NTk3MzMzfQ.g68RkBPmXJGBt3mczMzxfLc9YKfk-m3OGW458AKKkwE")
             .expect(200)
-            .end(function (err, res) {
+            .end(function (err) {
                 if (err) throw err;
                 done();
             });
